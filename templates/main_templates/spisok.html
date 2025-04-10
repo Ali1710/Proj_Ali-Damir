@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Объявления</title>
+</head>
+<body>
+    <h1>Список объявлений</h1>
+
+    <p>Привет, {{ user.username }}!</p>
+    
+    {% if user.is_authenticated %}
+        <p>Вы вошли как: {{ user.username }}</p>
+    {% else %}
+        <p>Вы не вошли в систему</p>
+    {% endif %}
+    
+    <p>Пока нет объявлений.</p>
+        <ul>
+        {% for об in объявления %}
+            <li><strong>{{ об.заголовок }}</strong>: {{ об.описание }}</li>
+        {% empty %}
+            <li>Пока нет объявлений.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
